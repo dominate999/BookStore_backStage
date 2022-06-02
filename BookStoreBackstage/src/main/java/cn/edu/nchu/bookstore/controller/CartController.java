@@ -1,23 +1,22 @@
 package cn.edu.nchu.bookstore.controller;
 
-import cn.edu.nchu.bookstore.service.AccountService;
+import cn.edu.nchu.bookstore.service.CartService;
 import cn.edu.nchu.bookstore.utils.JsonResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-@Controller("accountController")
-@RequestMapping("/account")
-public class AccountController {
+@Controller("cartController")
+@RequestMapping("/cart")
+public class CartController {
 
     @Autowired
-    private AccountService accountService;
+    private CartService cartService;
 
-    @RequestMapping("/queryAll")
+    @RequestMapping("/queryCartByCustomerId")
     @ResponseBody
-    public JsonResult queryAll(){
-
-        return  JsonResult.ok(accountService.queryAll());
+    public JsonResult queryCartByCustomerId(int customerId){
+        return JsonResult.ok(cartService.queryCartByCustomerId(customerId));
     }
 }
