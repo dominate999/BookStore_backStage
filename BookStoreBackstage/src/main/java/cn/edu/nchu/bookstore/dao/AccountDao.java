@@ -8,4 +8,7 @@ import java.util.List;
 public interface AccountDao {
     @Select("select * from account")
     List<Account> queryAll();
+
+    @Select("select * from account where id = #{accountId}")
+    Account queryByAccountId(int accountId);
 }
