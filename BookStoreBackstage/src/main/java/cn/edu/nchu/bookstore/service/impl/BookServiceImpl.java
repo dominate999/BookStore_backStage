@@ -53,6 +53,11 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+    public List<BookVO> queryAllBookOrderBySale(){
+        return bookVODao.queryAllBookOrderBySale();
+    }
+
+    @Override
     public BookVO queryBookById(int bookId){
         return bookVODao.queryBookById(bookId);
     }

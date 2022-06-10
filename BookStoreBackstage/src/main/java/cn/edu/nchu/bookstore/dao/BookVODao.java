@@ -19,6 +19,9 @@ public interface BookVODao{
     @Select("select * from book_view where id = #{bookId}")
     BookVO queryBookById(int bookId);
 
+    @Select("select * from book_view order by saleAmount desc")
+    List<BookVO> queryAllBookOrderBySale();
+
 
 
     /**

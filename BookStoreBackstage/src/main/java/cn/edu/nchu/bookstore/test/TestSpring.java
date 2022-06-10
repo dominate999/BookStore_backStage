@@ -2,8 +2,10 @@ package cn.edu.nchu.bookstore.test;
 
 
 import cn.edu.nchu.bookstore.entity.BookVO;
+import cn.edu.nchu.bookstore.entity.Cart;
 import cn.edu.nchu.bookstore.service.AccountService;
 import cn.edu.nchu.bookstore.service.BookService;
+import cn.edu.nchu.bookstore.service.CartService;
 import cn.edu.nchu.bookstore.service.OrderService;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -63,6 +65,31 @@ public class TestSpring {
         List<BookVO> bookVOS = bookService.queryBookVOByKeys("软件",null,"10","30");
         System.out.println(bookVOS.toString() );
         System.out.println(bookVOS.size());
+    }
+
+
+    @Test
+    public void run6() throws Exception {
+        ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
+        CartService cartService = (CartService) ac.getBean("cartService");
+        Cart cart = new Cart();
+        cart.setBookId(1);
+        cart.setCartQuantity(1);
+        cart.setCustomerId(3);
+        cart.setCartAmount(32.0);
+        System.out.println(cartService.addToCart(cart));
+    }
+
+    @Test
+    public void run7() throws Exception {
+        ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
+        CartService cartService = (CartService) ac.getBean("cartService");
+        List<Integer> cartids = new ArrayList<>();
+        cartids.add(15);
+        cartids.add(16);
+        cartids.add(17);
+        cartids.add(18);
+        System.out.println(cartService.deleteSelect(cartids));
     }
 
 

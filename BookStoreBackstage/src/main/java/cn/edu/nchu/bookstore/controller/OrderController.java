@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,6 +51,24 @@ public class OrderController {
         return JsonResult.ok(orderService.payForOrder(order));
     }
 
+    @RequestMapping("/payForOrderByGen")
+    @ResponseBody
+    public JsonResult payForOrderByGen(String orderGeneratedId){
+        Order order = new Order();
+        order.setOrderGeneratedId(orderGeneratedId);
+        return JsonResult.ok(orderService.payForOrderByGen(order));
+    }
+
+    @RequestMapping("/updateOrderState")
+    @ResponseBody
+    public JsonResult updateOrderState(int orderId,String state){
+        Order order = new Order();
+        order.setId(orderId);
+        order.setOrderState(state);
+        return JsonResult.ok(orderService.updateOrderState(order));
+    }
+
+
     @RequestMapping("/queryOrderByUserId")
     @ResponseBody
     public JsonResult queryOrderByUserId(int userId){
@@ -78,6 +97,7 @@ public class OrderController {
                                      @RequestParam(name = "orderState",defaultValue = "null") String  orderState){
         return JsonResult.ok(orderService.queryOrderBind(userId, orderState));
     }
+
 
 
 

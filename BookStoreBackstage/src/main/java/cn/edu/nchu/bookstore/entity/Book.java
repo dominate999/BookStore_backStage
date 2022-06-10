@@ -14,7 +14,15 @@ public class Book {
   private String bookBlurb;
   private String bookPic;
   private int subcategoryId;
+  private int saleAmount;
 
+  public int getSaleAmount() {
+    return saleAmount;
+  }
+
+  public void setSaleAmount(int saleAmount) {
+    this.saleAmount = saleAmount;
+  }
 
   public int getId() {
     return id;

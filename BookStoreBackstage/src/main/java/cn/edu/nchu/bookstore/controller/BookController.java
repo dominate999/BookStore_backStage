@@ -36,6 +36,12 @@ public class BookController {
         return JsonResult.ok(bookService.queryAllBook());
     }
 
+    @RequestMapping("/queryAllBookOrderBySale")
+    @ResponseBody
+    public JsonResult queryAllBookOrderBySale(){
+        return JsonResult.ok(bookService.queryAllBookOrderBySale());
+    }
+
 
     @RequestMapping("/queryBookById")
     @ResponseBody

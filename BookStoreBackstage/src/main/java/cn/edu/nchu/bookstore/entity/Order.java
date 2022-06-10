@@ -10,6 +10,7 @@ public class Order {
   private String orderPayTime;
   private double orderAmount;
   private int customerId;
+  private String deliver_no;
 
 
   public int getId() {
@@ -74,4 +75,12 @@ public class Order {
     this.customerId = customerId;
   }
 
+
+  public String getDeliver_no() {
+    return deliver_no;
+  }
+
+  public void setDeliver_no(String deliver_no) {
+    this.deliver_no = deliver_no;
+  }
 }

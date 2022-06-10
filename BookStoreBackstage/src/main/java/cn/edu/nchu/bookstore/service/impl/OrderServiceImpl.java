@@ -152,6 +152,23 @@ public class OrderServiceImpl implements OrderService {
         return orderDao.PayForOrder(order);
     }
 
+    @Override
+    public boolean payForOrderByGen(Order order) {
+        //新增付款时间
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String time = sdf.format(new Date());
+        order.setOrderPayTime(time);
+        //修改状态
+        order.setOrderState("待发货");
+
+        //修改图书库存
+        List<OrderVO>  orderVOList = orderVODao.queryOrderVOByOrderGen(order.getOrderGeneratedId());
+        for (OrderVO orderVO : orderVOList) {
+            bookDao.updateStock(orderVO.getBookStock()-orderVO.getBookQuantity(),orderVO.getBookId());
+        }
+        return orderDao.PayForOrderByGen(order);
+    }
+
 
     @Override
     public List<OrderBind> queryOrderBind(int userId,String orderState){

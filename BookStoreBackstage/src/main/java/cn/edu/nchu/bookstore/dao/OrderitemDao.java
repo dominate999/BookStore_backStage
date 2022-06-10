@@ -18,4 +18,8 @@ public interface OrderitemDao {
 
     @Select("select * from orderitem where orderId = #{orderId}")
     public List<Orderitem> queryOrderitemByOrderId(int orderId);
+
+    @Select("select * from orderitem where id = #{id}")
+    public List<Orderitem> queryOrderitemById(int id);
+
 }

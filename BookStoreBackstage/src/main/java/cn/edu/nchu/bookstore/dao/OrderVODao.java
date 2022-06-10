@@ -11,6 +11,10 @@ public interface OrderVODao {
     @Select("select * from order_view where id = #{orderId}")
     List<OrderVO> queryOrderVOByOrderId(int orderId);
 
+    @Select("select * from order_view where orderGeneratedId = #{orderGeneratedId}")
+    List<OrderVO> queryOrderVOByOrderGen(String orderGeneratedId);
+
+
     @Select("select * from order_view where customerId = #{userId}")
     List<OrderVO> queryOrderByUserId(int userId);
 

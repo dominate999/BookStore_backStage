@@ -14,6 +14,8 @@ public interface BookService {
 
     List<BookVO> queryAllBook();
 
+    List<BookVO> queryAllBookOrderBySale();
+
     BookVO queryBookById(int bookId);
 
     List<BookVO> queryBookVOByKw(String kw);

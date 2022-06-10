@@ -23,6 +23,9 @@ public interface OrderService {
     //付钱，修改订单状态
     boolean payForOrder(Order order);
 
+    //付钱，修改订单状态
+    boolean payForOrderByGen(Order order);
+
 
     List<OrderBind> queryOrderBind(int userId,String orderState);
 

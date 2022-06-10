@@ -9,6 +9,8 @@ public class Evaluate {
   private String evaCreateTime;
   private String username;
   private int bookId;
+  private int customerId;
+  private int orderitemId;
 
 
   public int getId() {
@@ -62,6 +64,23 @@ public class Evaluate {
 
   public void setBookId(int bookId) {
     this.bookId = bookId;
+  }
+
+
+  public int getCustomerId() {
+    return customerId;
+  }
+
+  public int getOrderitemId() {
+    return orderitemId;
+  }
+
+  public void setOrderitemId(int orderitemId) {
+    this.orderitemId = orderitemId;
+  }
+
+  public void setCustomerId(int customerId) {
+    this.customerId = customerId;
   }
 
 }
