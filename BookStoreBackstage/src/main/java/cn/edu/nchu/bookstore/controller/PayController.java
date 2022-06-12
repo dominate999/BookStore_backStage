@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.UnsupportedEncodingException;
 
 
 @RestController
@@ -29,8 +30,8 @@ public class PayController {
      * @return
      * @throws AlipayApiException
      */
-    @PostMapping("pay/alipay")
-    public String alipay(String outTradeNo, String subject, String totalAmount, String body) throws AlipayApiException {
+    @PostMapping(value = "pay/alipay" , produces = "text/html;charset=utf-8")
+    public String alipay(String outTradeNo, String subject, String totalAmount, String body) throws AlipayApiException, UnsupportedEncodingException {
         AlipayBean alipayBean = new AlipayBean();
         alipayBean.setOut_trade_no(outTradeNo);
         alipayBean.setSubject(subject);
@@ -41,6 +42,6 @@ public class PayController {
         System.out.println(totalAmount);
         System.out.println(body);
         return payService.aliPay(alipayBean);
-    }
 
+    }
 }

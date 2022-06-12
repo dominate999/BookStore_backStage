@@ -3,12 +3,6 @@ package cn.edu.nchu.bookstore.service;
 import cn.edu.nchu.bookstore.entity.AlipayBean;
 import com.alipay.api.AlipayApiException;
 
-
-/**
- * 支付服务
- * @author Louis
- * @date Dec 12, 2018
- */
 public interface PayService {
 
     /**
